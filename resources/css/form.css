@@ -16,7 +16,7 @@
   position: relative;
 }
 
-.form__password-area__view-password-btn {
+.form__password-area__password-preview-btn {
   background: transparent;
   padding: 4px;
   position: absolute;
@@ -25,7 +25,7 @@
   right: 8px;
 }
 
-.form__password-area__view-password-btn:active {
+.form__password-area__password-preview-btn:active {
   transform: scale(0.9);
 }
 

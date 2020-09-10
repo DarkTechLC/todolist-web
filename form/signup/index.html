@@ -21,6 +21,17 @@
     <!-- Complete later -->
     <link rel="canonical" href="" />
     <link rel="stylesheet" href="../../resources/css/form.css" />
+    <script
+      defer
+      type="module"
+      src="../../resources/js/common/index.js"
+    ></script>
+    <script defer type="module" src="../../resources/js/form/main.js"></script>
+    <script
+      defer
+      type="module"
+      src="../../resources/js/form/handleFormSignup.js"
+    ></script>
   </head>
   <body>
     <div class="top-bar">
@@ -77,7 +88,7 @@
       </div>
     </div>
 
-    <div class="menu-nav menu-nav--hidden">
+    <div class="menu-nav menu-nav--hidden js-menu-nav">
       <nav class="menu-nav__container">
         <a
           href="/app/"
@@ -104,7 +115,7 @@
       <div class="main-area__container">
         <h1 class="main-area__container__title-form">Criar uma conta</h1>
 
-        <form class="form" autocomplete="on">
+        <form class="form js-form" autocomplete="on">
           <label for="user_name" class="form__label">Nome de usuário</label>
           <input
             type="text"
@@ -138,7 +149,7 @@
 
             <button
               type="button"
-              class="form__password-area__view-password-btn js-view-password-trigger"
+              class="form__password-area__password-preview-btn js-password-preview-trigger"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +178,7 @@
       </div>
     </main>
 
-    <div class="alert-box alert-box--hidden">
+    <div class="alert-box alert-box--hidden js-alert-box">
       <div class="alert-box__container">
         <svg
           xmlns="http://www.w3.org/2000/svg"
