@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>App | Lista de Tarefas</title>
+    <title>Entrar | Lista de Tarefas</title>
     <meta name="description" content="Organize seu dia e faça mais!" />
     <meta
       name="keywords"
@@ -21,6 +21,12 @@
     <!-- Complete later -->
     <link rel="canonical" href="" />
     <link rel="stylesheet" href="../resources/css/app.css" />
+    <script
+      defer
+      type="module"
+      src="../../resources/js/common/index.js"
+    ></script>
+    <script defer type="module" src="../resources/js/app/main.js"></script>
   </head>
   <body>
     <div class="top-bar">
@@ -74,6 +80,158 @@
             <line x1="6" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
+      </div>
+    </div>
+
+    <div class="menu-nav menu-nav--hidden js-menu-nav">
+      <nav class="menu-nav__container">
+        <a
+          href="/app/"
+          class="menu-nav__container__link menu-nav__container__link--green"
+        >
+          Ir para as tarefas
+        </a>
+        <a
+          href="/form/login/"
+          class="menu-nav__container__link menu-nav__container__link--blue"
+        >
+          Entrar
+        </a>
+        <a
+          href="/form/signup/"
+          class="menu-nav__container__link menu-nav__container__link--red"
+        >
+          Cadastrar-se
+        </a>
+      </nav>
+    </div>
+
+    <main class="main-area">
+      <div class="main-area__container">
+        <div class="modal-task modal-task--hidden js-add-task-modal">
+          <div class="modal-task__container">
+            <h3 class="modal-task__container__title">Criar tarefa</h3>
+
+            <form class="form js-form-add-task">
+              <label for="title" class="form__label"> Título </label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Título da tarefa..."
+                class="form__input"
+                required
+              />
+
+              <label for="description" class="form__label"> Descrição </label>
+              <textarea
+                name="description"
+                id="description"
+                placeholder="Descrição da tarefa..."
+                class="form__textarea"
+              ></textarea>
+
+              <label for="priority" class="form__label"> Prioridade </label>
+              <select name="priority" id="priority" class="form__select">
+                <option value="1" selected>Baixa</option>
+                <option value="2">Média</option>
+                <option value="3">Alta</option>
+              </select>
+
+              <button type="submit" class="form__submit-btn">Criar</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="bottom-bar">
+          <div class="bottom-bar__container">
+            <button
+              class="bottom-bar__container__item-btn bottom-bar__container__item-btn-page-area is-active js-task-area-trigger"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-check-square bottom-bar__container__item-btn__icon"
+              >
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path
+                  d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+                ></path>
+              </svg>
+            </button>
+
+            <button
+              class="bottom-bar__container__item-btn bottom-bar__container__item-btn--bg bottom-bar__container__item-btn-add-task js-add-task-trigger"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-plus bottom-bar__container__item-btn__icon"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+
+            <button
+              class="bottom-bar__container__item-btn bottom-bar__container__item-btn-page-area js-profile-area-trigger"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-user bottom-bar__container__item-btn__icon"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="alert-box alert-box--hidden js-alert-box">
+      <div class="alert-box__container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-alert-triangle alert-box__container__icon"
+        >
+          <path
+            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+          ></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <span class="js-alert-box-message"></span>
       </div>
     </div>
   </body>

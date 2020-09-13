@@ -1,1 +1,106 @@
 @import "./main.css";
+
+.menu-nav {
+  height: calc(100vh - 96px);
+}
+
+.modal-task {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 96px);
+  justify-content: center;
+  padding: 0 8px;
+  position: fixed;
+  left: 0;
+  top: 48px;
+  transition: all ease 500ms;
+  width: 100vw;
+  z-index: 8;
+}
+
+.modal-task--hidden {
+  top: 110vh;
+  visibility: hidden;
+}
+
+.modal-task__container {
+  align-items: center;
+  background: var(--secondary-black);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100% - 16px);
+  justify-content: center;
+  max-width: 700px;
+  padding: 8px;
+  width: 100%;
+}
+
+.modal-task__container__title {
+  font-size: 2.4rem;
+}
+
+.form__input,
+.form__textarea,
+.form__select {
+  background: var(--main-black);
+}
+
+.bottom-bar {
+  bottom: 0;
+  height: 48px;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+}
+
+.bottom-bar__container {
+  align-items: center;
+  background: var(--secondary-black);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.bottom-bar__container__item-btn {
+  align-items: center;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  height: 100%;
+}
+
+.bottom-bar__container__item-btn--bg {
+  background: var(--main-gradient);
+}
+
+.bottom-bar__container__item-btn svg {
+  transition: all ease 300ms;
+}
+
+.bottom-bar__container__item-btn:active svg {
+  transform: scale(0.9);
+}
+
+/*  */
+.bottom-bar__container__item-btn-add-task.is-active {
+  background: var(--secondary-gradient);
+}
+
+.bottom-bar__container__item-btn-add-task.is-active svg {
+  transform: rotate(45deg);
+}
+
+/*  */
+.bottom-bar__container__item-btn-page-area.is-active svg {
+  stroke: var(--main-green);
+}
