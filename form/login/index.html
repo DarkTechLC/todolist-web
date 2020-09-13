@@ -21,6 +21,17 @@
     <!-- Complete later -->
     <link rel="canonical" href="" />
     <link rel="stylesheet" href="../../resources/css/form.css" />
+    <script
+      defer
+      type="module"
+      src="../../resources/js/common/index.js"
+    ></script>
+    <script defer type="module" src="../../resources/js/form/main.js"></script>
+    <script
+      defer
+      type="module"
+      src="../../resources/js/form/handleFormLogin.js"
+    ></script>
   </head>
   <body>
     <div class="top-bar">
@@ -74,6 +85,110 @@
             <line x1="6" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
+      </div>
+    </div>
+
+    <div class="menu-nav menu-nav--hidden js-menu-nav">
+      <nav class="menu-nav__container">
+        <a
+          href="/app/"
+          class="menu-nav__container__link menu-nav__container__link--green"
+        >
+          Ir para as tarefas
+        </a>
+        <a
+          href="/form/login/"
+          class="menu-nav__container__link menu-nav__container__link--blue"
+        >
+          Entrar
+        </a>
+        <a
+          href="/form/signup/"
+          class="menu-nav__container__link menu-nav__container__link--red"
+        >
+          Cadastrar-se
+        </a>
+      </nav>
+    </div>
+
+    <main class="main-area">
+      <div class="main-area__container">
+        <h1 class="main-area__container__title-form">Entrar na conta</h1>
+
+        <form class="form js-form" autocomplete="on">
+          <label for="user_email" class="form__label">E-mail</label>
+          <input
+            type="email"
+            name="user_email"
+            id="user_email"
+            placeholder="Seu endereço de e-mail..."
+            class="form__input"
+            required
+          />
+
+          <label for="password" class="form__label">Senha</label>
+          <div class="form__password-area">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Sua senha de acesso..."
+              class="form__input js-password-input"
+              required
+            />
+
+            <button
+              type="button"
+              class="form__password-area__password-preview-btn js-password-preview-trigger"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-eye btn"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+
+          <button type="submit" class="form__submit-btn">Entrar</button>
+        </form>
+
+        <a href="../signup/" class="main-area__container__link-change-form">
+          Não tenho uma conta
+        </a>
+      </div>
+    </main>
+
+    <div class="alert-box alert-box--hidden js-alert-box">
+      <div class="alert-box__container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-alert-triangle alert-box__container__icon"
+        >
+          <path
+            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+          ></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <span class="js-alert-box-message"></span>
       </div>
     </div>
   </body>

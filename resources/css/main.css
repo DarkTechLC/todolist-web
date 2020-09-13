@@ -17,6 +17,11 @@
   --border-radius: 16px;
 }
 
+::selection {
+  background: var(--main-white);
+  color: var(--main-black);
+}
+
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
@@ -146,6 +151,7 @@ svg.feather {
   padding: 16px;
   text-align: center;
   transition: transform ease 300ms;
+  user-select: none;
   width: 100%;
 }
 
