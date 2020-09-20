@@ -108,7 +108,61 @@
 
     <main class="main-area">
       <div class="main-area__container">
-        <div class="modal-task modal-task--hidden js-add-task-modal">
+        <div class="main-area__container__content">
+          <section class="content__task-area js-task-area is-active">
+            <h2 class="content__task-area__title">Tarefas</h2>
+
+            <header class="content__task-area__header">
+              <div class="content__task-area__header__welcome">
+                <p class="content__task-area__header__welcome__hello">
+                  Olá,
+                  <span
+                    class="content__task-area__header__welcome__hello__name js-welcome-name"
+                    >Usuário</span
+                  >!
+                </p>
+
+                <p
+                  class="content__task-area__header__welcome__date js-welcome-date"
+                ></p>
+              </div>
+
+              <div class="content__task-area__header__filter">
+                <p class="content__task-area__header__filter__label">
+                  Ver tarefas com prioridade:
+                </p>
+                <div class="content__task-area__header__filter__options">
+                  <button
+                    class="content__task-area__header__filter__options__btn is-active"
+                  >
+                    Todas
+                  </button>
+                  <button
+                    class="content__task-area__header__filter__options__btn"
+                  >
+                    Alta
+                  </button>
+                  <button
+                    class="content__task-area__header__filter__options__btn"
+                  >
+                    Média
+                  </button>
+                  <button
+                    class="content__task-area__header__filter__options__btn"
+                  >
+                    Baixa
+                  </button>
+                </div>
+              </div>
+            </header>
+          </section>
+
+          <section class="content__profile-area js-profile-area">
+            <h2 class="content__profile-area__title">Perfil</h2>
+          </section>
+        </div>
+
+        <section class="modal-task modal-task--hidden js-add-task-modal">
           <div class="modal-task__container">
             <h3 class="modal-task__container__title">Criar tarefa</h3>
 
@@ -141,7 +195,7 @@
               <button type="submit" class="form__submit-btn">Criar</button>
             </form>
           </div>
-        </div>
+        </section>
 
         <div class="bottom-bar">
           <div class="bottom-bar__container">

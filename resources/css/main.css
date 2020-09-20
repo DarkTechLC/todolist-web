@@ -253,7 +253,7 @@ svg.feather {
   position: fixed;
   transition: all ease 300ms;
   width: 100vw;
-  z-index: 8;
+  z-index: 11;
 }
 
 .alert-box--hidden {
