@@ -1,9 +1,9 @@
-import generateFormData from '../utils/generateFormData.js'
-import handleDataInLocalStorage from '../utils/handleDataInLocalStorage.js'
-import handleApiData from '../utils/handleApiData.js'
-import handleLocationURL from '../utils/handleLocationURL.js'
-import handleErrorMessageView from '../utils/handleErrorMessageView.js'
-import { toggleAddTaskArea } from './toggleAddTaskArea.js'
+import generateFormData from '../utils/generateFormData.js';
+import handleDataInLocalStorage from '../utils/handleDataInLocalStorage.js';
+import handleApiData from '../utils/handleApiData.js';
+import handleLocationURL from '../utils/handleLocationURL.js';
+import handleErrorMessageView from '../utils/handleErrorMessageView.js';
+import { toggleAddTaskArea } from './toggleAddTaskArea.js';
 
 export default () => {
   const formElement = document.querySelector('.js-form-add-task');
