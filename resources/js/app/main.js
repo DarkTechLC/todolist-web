@@ -2,6 +2,7 @@ import haveAToken from './haveAToken.js';
 import handleLocationURL from '../utils/handleLocationURL.js';
 import displayUserName from './displayUserName.js';
 import setDate from './setDate.js';
+import handleFilteredTasks from './handleFilteredTasks.js';
 import { toggleAddTaskAreaWithClick } from './toggleAddTaskArea.js';
 import handleAddTask from './handleAddTask.js';
 import { renderTaskList } from './TaskList.js';
@@ -13,6 +14,7 @@ const main = async () => {
   await renderTaskList('/user/todos');
   displayUserName();
   setDate();
+  handleFilteredTasks();
   toggleAddTaskAreaWithClick();
   handleAddTask();
 }
