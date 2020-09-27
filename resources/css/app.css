@@ -187,7 +187,7 @@
   flex-grow: 1;
   font-weight: 600;
   padding: 16px;
-  transition: transform ease 300ms;
+  transition: all ease 300ms;
 }
 
 .content__task-area__header__filter__options__btn:active {

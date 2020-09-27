@@ -21,6 +21,9 @@ export const generateTaskList = async (resource) => {
     todos.forEach(todoData => taskList.append(TaskItem(todoData)));
     return taskList;
   }
+
+  handleErrorMessageView(data);
+  return;
 }
 
 export const renderTaskList = async (resource) => {

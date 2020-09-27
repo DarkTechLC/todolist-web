@@ -3,6 +3,7 @@ import handleDataInLocalStorage from '../utils/handleDataInLocalStorage.js';
 import handleApiData from '../utils/handleApiData.js';
 import handleLocationURL from '../utils/handleLocationURL.js';
 import handleErrorMessageView from '../utils/handleErrorMessageView.js';
+import TaskItem from './TaskItem.js';
 import { toggleAddTaskArea } from './toggleAddTaskArea.js';
 
 export default () => {
@@ -28,8 +29,15 @@ export default () => {
     }
 
     if (data.error === false) {
-      console.log(data);
-      // Add task in DOM
+      const taskList = document.querySelector('.js-task-list');
+      const currentPriority = taskList.getAttribute('data-current-priority');
+      const { new_todo } = data;
+
+      if (currentPriority === '' || +currentPriority === new_todo.priority) {
+        const newTaskEl = TaskItem(new_todo);
+        taskList.prepend(newTaskEl);
+      }
+
       formElement.reset();
       toggleAddTaskArea();
       return;
