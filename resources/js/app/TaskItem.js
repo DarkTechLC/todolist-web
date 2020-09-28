@@ -1,3 +1,8 @@
+import handleDataInLocalStorage from '../utils/handleDataInLocalStorage.js'
+import handleLocationURL from '../utils/handleLocationURL.js';
+import handleErrorMessageView from '../utils/handleErrorMessageView.js';
+import handleApiData from '../utils/handleApiData.js';
+
 export default ({ id, title, description, priority, finished }) => {
   const priorityValues = {
     '1': {
@@ -31,8 +36,29 @@ export default ({ id, title, description, priority, finished }) => {
     console.log(`Edit task: ${taskId}`);
   }
 
-  function deleteTask(taskId) {
-    console.log(`Delete task: ${taskId}`);
+  async function deleteTask(taskId, event) {
+    const { token } = handleDataInLocalStorage.getData();
+
+    const data = await handleApiData(
+      `/user/todos/${taskId}`,
+      'DELETE', {},
+      { Authorization: token }
+    );
+
+    if (data.error === true && data.auth === false) {
+      handleErrorMessageView(data);
+      handleLocationURL('/form/login', 2000);
+      return;
+    }
+
+    if (data.error === false) {
+      const currentTask = event.target.parentNode.parentNode;
+      currentTask.remove();
+      return;
+    }
+
+    handleErrorMessageView(data);
+    return;
   }
 
   // Task Item Element
@@ -105,7 +131,7 @@ export default ({ id, title, description, priority, finished }) => {
     </svg>
   `;
 
-  taskItem__btns__btnFinish.addEventListener('click', (e) => finishTask(id));
+  taskItem__btns__btnFinish.addEventListener('click', () => finishTask(id));
 
   /// Task Item Button Edit Element
   const taskItem__btns__btnEdit = document.createElement('button');
@@ -133,7 +159,7 @@ export default ({ id, title, description, priority, finished }) => {
     </svg>
   `;
 
-  taskItem__btns__btnEdit.addEventListener('click', (e) => editTask(id));
+  taskItem__btns__btnEdit.addEventListener('click', () => editTask(id));
 
   /// Task Item Button Delete Element
   const taskItem__btns__btnDelete = document.createElement('button');
@@ -161,7 +187,7 @@ export default ({ id, title, description, priority, finished }) => {
     </svg>
   `;
 
-  taskItem__btns__btnDelete.addEventListener('click', (e) => deleteTask(id));
+  taskItem__btns__btnDelete.addEventListener('click', (event) => deleteTask(id, event));
 
   taskItem__btns.append(taskItem__btns__btnFinish);
   taskItem__btns.append(taskItem__btns__btnEdit);

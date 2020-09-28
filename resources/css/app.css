@@ -285,6 +285,10 @@
   transform: scale(0.95);
 }
 
+.task-list__task-item__task-btns__btn svg {
+  pointer-events: none;
+}
+
 .task-list__task-item__task-btns__btn--finish svg {
   stroke: var(--main-green);
 }
