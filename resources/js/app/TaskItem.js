@@ -28,8 +28,34 @@ export default ({ id, title, description, priority, finished }) => {
     }
   }
 
-  function finishTask(taskId) {
-    console.log(`Finish task: ${taskId}`);
+  async function finishTask(taskId, event) {
+    const { token } = handleDataInLocalStorage.getData();
+
+    const data = await handleApiData(
+      `/user/todos/${taskId}/finish`,
+      'PATCH',
+      {},
+      { Authorization: token }
+    );
+
+    if (data.error === true && data.auth === false) {
+      handleErrorMessageView(data);
+      handleLocationURL('/form/login', 2000);
+      return;
+    }
+
+    if (data.error === false) {
+      const currentTaskEl = event.target.parentNode.parentNode;
+      const currentTaskHeaderStatusEl = currentTaskEl.firstElementChild.lastElementChild;
+      const { updated_todo: { finished } } = data;
+
+      currentTaskEl.setAttribute('data-finished', finished);
+      currentTaskHeaderStatusEl.textContent = finishedValues[finished].text;
+      return;
+    }
+
+    handleErrorMessageView(data);
+    return;
   }
 
   function editTask(taskId) {
@@ -41,7 +67,8 @@ export default ({ id, title, description, priority, finished }) => {
 
     const data = await handleApiData(
       `/user/todos/${taskId}`,
-      'DELETE', {},
+      'DELETE',
+      {},
       { Authorization: token }
     );
 
@@ -52,8 +79,8 @@ export default ({ id, title, description, priority, finished }) => {
     }
 
     if (data.error === false) {
-      const currentTask = event.target.parentNode.parentNode;
-      currentTask.remove();
+      const currentTaskEl = event.target.parentNode.parentNode;
+      currentTaskEl.remove();
       return;
     }
 
@@ -131,7 +158,7 @@ export default ({ id, title, description, priority, finished }) => {
     </svg>
   `;
 
-  taskItem__btns__btnFinish.addEventListener('click', () => finishTask(id));
+  taskItem__btns__btnFinish.addEventListener('click', (event) => finishTask(id, event));
 
   /// Task Item Button Edit Element
   const taskItem__btns__btnEdit = document.createElement('button');
