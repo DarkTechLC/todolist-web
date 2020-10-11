@@ -15,12 +15,9 @@ export default () => {
     const formData = generateFormData(formElement);
     const { token } = handleDataInLocalStorage.getData();
 
-    const data = await handleApiData(
-      '/user/todos',
-      'POST',
-      formData,
-      { Authorization: token }
-    );
+    const data = await handleApiData('/user/todos', 'POST', formData, {
+      Authorization: token,
+    });
 
     if (data.error === true && data.auth === false) {
       handleErrorMessageView(data);
@@ -34,8 +31,8 @@ export default () => {
       const { new_todo } = data;
 
       if (currentPriority === '' || +currentPriority === new_todo.priority) {
-        const newTaskEl = TaskItem(new_todo);
-        taskList.prepend(newTaskEl);
+        const newTaskItemEl = new TaskItem(new_todo).createTaskElement();
+        taskList.prepend(newTaskItemEl);
       }
 
       formElement.reset();
@@ -45,4 +42,4 @@ export default () => {
 
     return handleErrorMessageView(data);
   });
-}
+};

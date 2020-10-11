@@ -163,101 +163,7 @@
             <ul
               class="content__task-area__task-list js-task-list"
               data-current-priority=""
-            >
-              <!-- <li
-                class="task-area__task-list__task-item"
-                data-id=""
-                data-priority="low"
-                data-finished="true"
-              >
-                <header class="task-area__task-list__task-item__header">
-                  <span class="task-list__task-item__header__priority">
-                    Prioridade:
-                    <strong
-                      class="task-list__task-item__header__priority__type"
-                    >
-                      baixa
-                    </strong>
-                  </span>
-
-                  <strong
-                    class="task-list__task-item__header__status"
-                  >
-                    Finalizado
-                  </strong>
-                </header>
-
-                <article class="task-area__task-list__task-item__content">
-                  <h4 class="task-list__task-item__title">Título</h4>
-                  <p class="task-list__task-item__description">Descrição</p>
-                </article>
-
-                <div class="task-area__task-list__task-item__task-btns">
-                  <button
-                    class="task-list__task-item__task-btns__btn task-list__task-item__task-btns__btn--finish"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-check"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </button>
-
-                  <button
-                    class="task-list__task-item__task-btns__btn task-list__task-item__task-btns__btn--edit"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-edit-3"
-                    >
-                      <path d="M12 20h9"></path>
-                      <path
-                        d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <button
-                    class="task-list__task-item__task-btns__btn task-list__task-item__task-btns__btn--delete"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-trash"
-                    >
-                      <polyline points="3 6 5 6 21 6"></polyline>
-                      <path
-                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-                      ></path>
-                    </svg>
-                  </button>
-                </div>
-              </li> -->
-            </ul>
+            ></ul>
           </section>
 
           <section class="content__profile-area js-profile-area">
@@ -296,6 +202,46 @@
               </select>
 
               <button type="submit" class="form__submit-btn">Criar</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="modal-task modal-task--hidden js-edit-task-modal">
+          <div class="modal-task__container">
+            <h3 class="modal-task__container__title">Editar tarefa</h3>
+
+            <form class="form js-form-edit-task">
+              <label for="title" class="form__label"> Título </label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Título da tarefa..."
+                class="form__input js-form-edit-task-input-title"
+                required
+              />
+
+              <label for="description" class="form__label"> Descrição </label>
+              <textarea
+                name="description"
+                id="description"
+                placeholder="Descrição da tarefa..."
+                class="form__textarea js-form-edit-task-input-description"
+              ></textarea>
+
+              <label for="priority" class="form__label"> Prioridade </label>
+              <select
+                name="priority"
+                id="priority"
+                class="form__select js-form-edit-task-input-priority"
+              >
+                <option value="1">Baixa</option>
+                <option value="2">Média</option>
+                <option value="3">Alta</option>
+              </select>
+
+              <button type="submit" class="form__submit-btn">Editar</button>
+              <button type="reset" class="form__cancel-btn">Cancelar</button>
             </form>
           </div>
         </section>

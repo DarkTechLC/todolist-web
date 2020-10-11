@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
   --main-black: #1a232f;
@@ -24,7 +24,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   letter-spacing: 1px;
   outline: none;
@@ -233,9 +233,9 @@ svg.feather {
   border-color: var(--secondary-white);
 }
 
-.form__submit-btn {
+.form__submit-btn,
+.form__cancel-btn {
   border-radius: var(--border-radius);
-  background: var(--main-gradient);
   font-size: 1.6rem;
   font-weight: 700;
   height: 40px;
@@ -243,7 +243,17 @@ svg.feather {
   width: 100%;
 }
 
-.form__submit-btn:active {
+.form__submit-btn {
+  background: var(--main-gradient);
+}
+
+.form__cancel-btn {
+  background: var(--secondary-gradient);
+  margin-top: 8px;
+}
+
+.form__submit-btn:active,
+.form__cancel-btn:active {
   transform: scale(0.95);
 }
 
