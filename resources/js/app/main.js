@@ -7,6 +7,8 @@ import { toggleAddTaskAreaWithClick } from './toggleAddTaskArea.js';
 import handleAddTask from './handleAddTask.js';
 import { renderTaskList } from './TaskList.js';
 import handleUserArea from './handleUserArea.js';
+import displayUserInfo from './displayUserInfo.js';
+import handleLogout from './handleLogout.js';
 
 const main = async () => {
   if (!haveAToken()) return handleLocationURL('/form/login', 0);
@@ -18,6 +20,8 @@ const main = async () => {
   toggleAddTaskAreaWithClick();
   handleAddTask();
   handleUserArea();
+  displayUserInfo();
+  handleLogout();
 };
 
 main();

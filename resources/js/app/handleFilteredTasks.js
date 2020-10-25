@@ -10,10 +10,9 @@ export default () => {
 
       document
         .querySelectorAll('.task-area__task-list__task-item')
-        .forEach(taskItem => taskItem.remove());
+        .forEach((taskItemEl) => taskItemEl.remove());
 
-      filterBtnsEl
-        .forEach(fBtnEl => fBtnEl.classList.remove('is-active'));
+      filterBtnsEl.forEach((fBtnEl) => fBtnEl.classList.remove('is-active'));
 
       filterBtnEl.classList.add('is-active');
       taskList.setAttribute('data-current-priority', priority);
@@ -21,4 +20,4 @@ export default () => {
       await renderTaskList(`/user/todos?priority=${priority}`);
     });
   });
-}
+};
