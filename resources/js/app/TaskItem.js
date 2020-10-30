@@ -124,6 +124,9 @@ export default class TaskItem {
       }
 
       if (data.error === false) {
+        const taskList = document.querySelector('.js-task-list');
+        const currentPriority = taskList.getAttribute('data-current-priority');
+
         const {
           updated_todo: {
             title: titleUpdated,
@@ -131,6 +134,14 @@ export default class TaskItem {
             priority: priorityUpdated,
           },
         } = data;
+
+        modalElement.classList.add('modal-task--hidden');
+        formElement.reset();
+
+        if (currentPriority !== priorityUpdated && currentPriority !== '') {
+          currentTaskEl.remove();
+          return;
+        }
 
         const currentTaskHeaderPriorityTypeEl =
           currentTaskEl.firstElementChild.firstElementChild.lastElementChild;
@@ -144,9 +155,6 @@ export default class TaskItem {
         ].text;
         currentTaskElInfoTitleEl.textContent = titleUpdated;
         currentTaskElInfoDescriptionEl.textContent = descriptionUpdated;
-
-        modalElement.classList.add('modal-task--hidden');
-        formElement.reset();
         return;
       }
 
